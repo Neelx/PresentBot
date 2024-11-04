@@ -24,6 +24,7 @@ const Navbarlarge = () => {
         <Navbarmobile/>
 
         </div>
+        <Navbarmobile/>
         <div className='space-x-4 flex items-center'>
             {user ? (<Link 
             href={"/dashboard"} className={buttonVariants()}>
