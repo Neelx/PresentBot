@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Navbarmobile from './navbar-mobile'
 import{ LayoutDashboardIcon, Bot } from 'lucide-react'
 import { buttonVariants } from './ui/button'
+import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components'
 
 const Navbarlarge = () => {
     const user = false;
@@ -32,8 +33,8 @@ const Navbarlarge = () => {
             </Link>) : (
                 <div>
                 
-                <Link href={'/login'} className={buttonVariants({ variant: "ghost" })}>Login</Link>
-                <Link href={'/register'} className={buttonVariants()}>Create Account</Link>
+                <LoginLink className={buttonVariants({ variant: "ghost" })}>Login</LoginLink>
+                <RegisterLink  className={buttonVariants()}>Create Account</RegisterLink>
                 </div>
                 )}
             </div>        

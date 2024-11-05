@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { buttonVariants } from '../ui/button';
 import { Card } from '../ui/card';
 import Image from 'next/image';
+import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components';
 
 const Hero = () => {
   return (
@@ -20,8 +21,8 @@ const Hero = () => {
                   adding relevant visuals, layouts, and themes, saving time and enhancing presentation quality.
                 </p>
                 <div className='flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4'>
-                  <Link href='/' className={buttonVariants({className: " w-full sm:w-auto",})}>Get started</Link>
-                  <Link href='/' className={buttonVariants({variant: "secondary", className: " w-full sm:w-auto"})}>Generate presentation</Link>
+                  <RegisterLink href='/' className={buttonVariants({className: " w-full sm:w-auto",})}>Get started</RegisterLink>
+                  <LoginLink href='/' className={buttonVariants({variant: "secondary", className: " w-full sm:w-auto"})}>Generate presentation</LoginLink>
                 </div>
             </div>
         </div>

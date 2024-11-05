@@ -7,6 +7,7 @@ import { LinkProps } from "next/link";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 interface MobileLinkProps extends LinkProps {
   onOpenChange?: (open: boolean) => void;
@@ -32,7 +33,8 @@ const Navbarmobile = () => {
   const user = true;
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
+      <SheetTrigger asChild
+      className="flex md:hidden">
         <Button className={buttonVariants({variant: "outline"})}>
           <MenuIcon className="h-6 w-6 text-gray-900"/>
           <span className="sr-only">Toggle Menu</span>
@@ -50,12 +52,12 @@ const Navbarmobile = () => {
             {user ? (
               <div className="text-xs text-gray-500 flex flex-col gap-2">
                 <MobileLink href='/dashboard'>Dashboard</MobileLink>
-                <Link href='/logout' className={buttonVariants({variant: "default"})}>Logout</Link>
+                <LogoutLink className={buttonVariants({variant: "default"})}>Logout</LogoutLink>
               </div>
             ):(
               <div className="flex flex-col space-y-3">
-                <Link href="/login" className={buttonVariants({variant: "ghost"})}>Login</Link>
-                <Link href='/signup' className={buttonVariants({variant: "default"})}>Signup</Link>
+                <LoginLink className={buttonVariants({variant: "ghost"})}>Login</LoginLink>
+                <RegisterLink className={buttonVariants({variant: "default"})}>Signup</RegisterLink>
               </div>
 
             )}
