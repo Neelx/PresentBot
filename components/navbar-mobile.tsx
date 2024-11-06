@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet"
 import { Button, buttonVariants } from "./ui/button";
 import { MenuIcon } from "lucide-react";
 import { LinkProps } from "next/link";
@@ -31,6 +31,7 @@ function MobileLink({
 
 const Navbarmobile = ({user}: { user: KindeUser<object>}) => {
   const [open, setOpen] = useState<boolean>(false);
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild
@@ -39,6 +40,7 @@ const Navbarmobile = ({user}: { user: KindeUser<object>}) => {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pr-0">
+        <SheetTitle>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pr-10">
           <div className="flex flex-col space-y-3">
           <MobileLink href='/generate' onOpenChange={setOpen}>
@@ -60,7 +62,8 @@ const Navbarmobile = ({user}: { user: KindeUser<object>}) => {
 
             )}
           </div>
-        </ScrollArea>
+        </ScrollArea>          
+        </SheetTitle>
       </SheetContent>
     </Sheet>
   )

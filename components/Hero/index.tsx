@@ -8,12 +8,12 @@ import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components
 
 const Hero = () => {
   return (
-    <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-indigo-100'>
+    <section className='min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-indigo-300'>
       <MaxWidthWrapper>
         <div className='grid lg:grid-cols-2 items-center'>
             <div className='lg:text-left text-center'>
                 <h1 className='mb-6 text-4xl font-black leading-tight text-gray-900 lg:text-6xl'>
-                    Genreate any kind of <span className='text-green-600'>Powerpoint</span> from
+                    Generate any kind of <span className='text-green-600'>Powerpoint</span> from
                     videos.
                 </h1>
                 <p className='mb-9 text-lg text-gray-600'>
