@@ -8,6 +8,7 @@ import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 
 interface MobileLinkProps extends LinkProps {
   onOpenChange?: (open: boolean) => void;
@@ -28,16 +29,13 @@ function MobileLink({
     )
   }
 
-const Navbarmobile = () => {
+const Navbarmobile = ({user}: { user: KindeUser<object>}) => {
   const [open, setOpen] = useState<boolean>(false);
-  const user = true;
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild
       className="flex md:hidden">
-        <Button className={buttonVariants({variant: "outline"})}>
-          <MenuIcon className="h-6 w-6 text-gray-900"/>
-          <span className="sr-only">Toggle Menu</span>
+        <Button className={buttonVariants({variant: "outline", className:"text-gray-900"})}>
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pr-0">

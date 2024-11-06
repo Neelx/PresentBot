@@ -5,9 +5,12 @@ import Navbarmobile from './navbar-mobile'
 import{ LayoutDashboardIcon, Bot } from 'lucide-react'
 import { buttonVariants } from './ui/button'
 import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components'
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types'
 
-const Navbarlarge = () => {
-    const user = false;
+const Navbarlarge = async () => {
+    const { getUser } = getKindeServerSession();
+    const user: KindeUser<object> = await getUser();
 
   return (
     <MaxWidthWrapper className='flex items-center justify-between px-8 py-4 w-full text-gray-900 border-b border-gray-300' >
@@ -22,11 +25,10 @@ const Navbarlarge = () => {
           <Link href='/generate'>Generate</Link>
           <Link href='guidelines'>guidelines</Link>
         </div>
-        <Navbarmobile/>
+        <Navbarmobile user = {user}/>
 
         </div>
-        <Navbarmobile/>
-        <div className='space-x-4 flex items-center'>
+        <div className=' hidden md:flex space-x-4 items-center'>
             {user ? (<Link 
             href={"/dashboard"} className={buttonVariants()}>
             Dashboard<LayoutDashboardIcon className="h-6 w-6"/>
