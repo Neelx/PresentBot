@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
+import exp from "constants";
 
 export async function CreateUserIfNull(){
     try {
@@ -35,4 +36,3 @@ export async function CreateUserIfNull(){
         return{ success: false };
     }
 }
-
